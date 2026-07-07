@@ -39,42 +39,56 @@ class BTTrade:
 
 
 def _fetch_resolved(limit: int, category: str | None) -> list[dict]:
-    resp = httpx.get(
-        f"{GAMMA_API}/markets",
-        params={"limit": limit * 3, "closed": True, "order": "volumeNum", "ascending": False},
-        timeout=30,
-    )
-    resp.raise_for_status()
-    out = []
-    for m in resp.json():
-        prices = m.get("outcomePrices")
-        if isinstance(prices, str):
-            try:
-                prices = json.loads(prices)
-            except json.JSONDecodeError:
-                continue
-        if not prices or len(prices) < 2 or prices[0] not in ("0", "1", 0, 1):
-            continue
-        if str(prices[0]) not in ("0", "1"):
-            continue
-        toks = m.get("clobTokenIds")
-        if isinstance(toks, str):
-            try:
-                toks = json.loads(toks)
-            except json.JSONDecodeError:
-                continue
-        if not toks:
-            continue
-        q = m.get("question", "")
-        if category and category.lower() not in q.lower():
-            continue
-        out.append({
-            "question": q,
-            "outcome_yes": str(prices[0]) == "1",
-            "yes_token": toks[0],
-        })
-        if len(out) >= limit:
+    # Gamma caps each request at 100, so page through with an offset until we
+    # have `limit` usable resolved markets (or the feed runs out).
+    out: list[dict] = []
+    offset = 0
+    page_size = 100
+    empty_pages = 0
+    while len(out) < limit and empty_pages < 3:
+        resp = httpx.get(
+            f"{GAMMA_API}/markets",
+            params={
+                "limit": page_size, "offset": offset, "closed": True,
+                "order": "volumeNum", "ascending": False,
+            },
+            timeout=30,
+        )
+        resp.raise_for_status()
+        page = resp.json()
+        if not page:
             break
+        offset += page_size
+        added = 0
+        for m in page:
+            prices = m.get("outcomePrices")
+            if isinstance(prices, str):
+                try:
+                    prices = json.loads(prices)
+                except json.JSONDecodeError:
+                    continue
+            if not prices or len(prices) < 2 or str(prices[0]) not in ("0", "1"):
+                continue
+            toks = m.get("clobTokenIds")
+            if isinstance(toks, str):
+                try:
+                    toks = json.loads(toks)
+                except json.JSONDecodeError:
+                    continue
+            if not toks:
+                continue
+            q = m.get("question", "")
+            if category and category.lower() not in q.lower():
+                continue
+            out.append({
+                "question": q,
+                "outcome_yes": str(prices[0]) == "1",
+                "yes_token": toks[0],
+            })
+            added += 1
+            if len(out) >= limit:
+                break
+        empty_pages = empty_pages + 1 if added == 0 else 0
     return out
 
 
