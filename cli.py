@@ -7,6 +7,7 @@ Usage:
     python cli.py bot --loop           # Run the bot continuously
     python cli.py bot --live           # Bot with live trading
     python cli.py portfolio            # Show the bot's paper-trading portfolio
+    python cli.py verify-live          # Pre-flight check for live trading (no orders placed)
     python cli.py watch                # V2: Event-driven pipeline (real-time news → classify → trade)
     python cli.py watch --live         # V2: With live trading
     python cli.py run                  # V1: Synchronous pipeline (RSS → score → trade)
@@ -357,6 +358,12 @@ def cmd_verify(args):
         ))
 
 
+def cmd_verify_live(args):
+    """Pre-flight check for live trading — validates keys, auth, balance. No orders."""
+    from verify_live import run_verify_live
+    run_verify_live()
+
+
 def cmd_scrape(args):
     from scraper import scrape_all
 
@@ -528,6 +535,10 @@ def main():
     # verify
     p_verify = sub.add_parser("verify", help="Check API keys and connections")
     p_verify.set_defaults(func=cmd_verify)
+
+    # verify-live
+    p_vl = sub.add_parser("verify-live", help="Pre-flight check for live trading (no orders placed)")
+    p_vl.set_defaults(func=cmd_verify_live)
 
     # scrape
     p_scrape = sub.add_parser("scrape", help="Test the news scraper")

@@ -110,6 +110,38 @@ python cli.py bot --live --loop
 Everything is persisted in `trades.db`, so `python cli.py portfolio` shows live
 P&L across runs. Reset any time with `python cli.py portfolio --reset 1000`.
 
+### Going Live (real orders)
+
+Live trading is off by default. Before risking a cent, run the pre-flight check —
+it validates your credentials, authenticates with the CLOB, and reads your
+balance **without placing any order**:
+
+```bash
+python cli.py verify-live
+```
+
+Requirements (all in your local `.env`, which is gitignored — never commit keys):
+
+| Variable | What it is |
+|---|---|
+| `POLYMARKET_PRIVATE_KEY` | Your wallet's **64-hex signing key** (`0x…`). **Not** the API-key UUID — that's a common, costly mix-up `verify-live` catches for you. |
+| `POLYMARKET_FUNDER_ADDRESS` | The proxy wallet address holding your USDC (from the Polymarket deposit page). |
+| `POLYMARKET_SIGNATURE_TYPE` | `0` = EOA (no proxy), `1` = email/magic login, `2` = browser-wallet (MetaMask) proxy. Funds deposited via polymarket.com sit in a proxy, so most users need `1` or `2`. |
+| `DRY_RUN` | Set to `false` to arm live orders. |
+
+```bash
+pip install py-clob-client
+# Prove the plumbing with a $1 cap before scaling up:
+MAX_BET_USD=1 python cli.py bot --live
+```
+
+The API key/secret/passphrase are derived automatically from your private key —
+you don't set them manually.
+
+> ⚠️ The included strategies did **not** beat trading costs in a 1,000-market
+> backtest (+1.6% ROI before fees). Live trading works mechanically, but treat
+> these as a foundation to improve, not a proven money-maker. Start tiny.
+
 ### V2: Event-Driven Pipeline (news + Claude)
 
 ```bash

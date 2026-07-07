@@ -13,6 +13,12 @@ POLYMARKET_API_PASSPHRASE = os.getenv("POLYMARKET_API_PASSPHRASE", "")
 POLYMARKET_PRIVATE_KEY = os.getenv("POLYMARKET_PRIVATE_KEY", "")
 # Funder is the Polymarket proxy (deposit) wallet address that holds your USDC.
 POLYMARKET_FUNDER_ADDRESS = os.getenv("POLYMARKET_FUNDER_ADDRESS", "")
+# Order signature type:
+#   0 = EOA          — you sign and hold funds in the same wallet (no proxy)
+#   1 = POLY_PROXY   — Polymarket email/magic login (embedded wallet)
+#   2 = POLY_GNOSIS_SAFE — Polymarket browser-wallet (MetaMask) proxy
+# Most web-app users are 1 or 2; funds deposited via polymarket.com sit in a proxy.
+POLYMARKET_SIGNATURE_TYPE = int(os.getenv("POLYMARKET_SIGNATURE_TYPE", "2"))
 POLYMARKET_HOST = "https://clob.polymarket.com"
 POLYMARKET_WS_HOST = "wss://ws-subscriptions-clob.polymarket.com/ws/market"
 

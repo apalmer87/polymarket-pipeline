@@ -25,22 +25,38 @@ async def execute_trade_async(signal: Signal) -> dict:
     return await asyncio.get_event_loop().run_in_executor(None, execute_trade, signal)
 
 
+def build_clob_client():
+    """
+    Construct an authenticated Polymarket CLOB client.
+
+    key = the 64-hex private key that SIGNS orders (not the API-key UUID).
+    funder = the proxy wallet address that HOLDS your USDC.
+    signature_type distinguishes EOA (0) vs proxy wallets (1 email/magic,
+    2 browser-wallet) — funds deposited via polymarket.com live in a proxy, so
+    web-app users must use 1 or 2 or orders are rejected.
+
+    Returns the client, or raises. Import is local so the dependency is only
+    required for live trading.
+    """
+    from py_clob_client.client import ClobClient
+
+    client = ClobClient(
+        host=config.POLYMARKET_HOST,
+        key=config.POLYMARKET_PRIVATE_KEY,
+        chain_id=137,
+        signature_type=config.POLYMARKET_SIGNATURE_TYPE,
+        funder=config.POLYMARKET_FUNDER_ADDRESS or None,
+    )
+    client.set_api_creds(client.create_or_derive_api_creds())
+    return client
+
+
 def _execute_live(signal: Signal) -> dict:
     """Place a real order via Polymarket CLOB client."""
     try:
-        from py_clob_client.client import ClobClient
         from py_clob_client.clob_types import OrderArgs, OrderType
 
-        # key = the private key that signs orders; funder = the Polymarket
-        # proxy wallet address that holds your USDC. These are distinct.
-        client = ClobClient(
-            host=config.POLYMARKET_HOST,
-            key=config.POLYMARKET_PRIVATE_KEY,
-            chain_id=137,
-            funder=config.POLYMARKET_FUNDER_ADDRESS or None,
-        )
-
-        client.set_api_creds(client.create_or_derive_api_creds())
+        client = build_clob_client()
 
         token_id = get_token_id(signal.market, signal.side)
         if not token_id:
