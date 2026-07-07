@@ -145,6 +145,18 @@ def cmd_backtest(args):
     run_backtest(limit=args.limit, category=args.category)
 
 
+def cmd_botbacktest(args):
+    """Backtest the market-data bot strategies over real historical prices."""
+    from strategy_backtest import run_backtest as run_bot_backtest
+    strategies = [s.strip() for s in args.strategies.split(",")] if args.strategies else None
+    run_bot_backtest(
+        limit=args.limit,
+        category=args.category,
+        stake=args.stake,
+        strategies=strategies,
+    )
+
+
 def cmd_calibrate(args):
     """Show classification accuracy report."""
     from calibrator import check_resolutions, get_report
@@ -491,11 +503,19 @@ def main():
                       help="Reset portfolio (optionally to a given bankroll)")
     p_pf.set_defaults(func=cmd_portfolio)
 
-    # backtest
-    p_bt = sub.add_parser("backtest", help="Backtest V2 strategy")
+    # backtest (V2 classification pipeline)
+    p_bt = sub.add_parser("backtest", help="Backtest V2 news/classification strategy")
     p_bt.add_argument("--limit", type=int, default=30, help="Number of resolved markets")
     p_bt.add_argument("--category", type=str, default=None, help="Filter by category")
     p_bt.set_defaults(func=cmd_backtest)
+
+    # botbacktest (market-data strategies)
+    p_bbt = sub.add_parser("botbacktest", help="Backtest bot strategies over historical prices")
+    p_bbt.add_argument("--limit", type=int, default=40, help="Number of resolved markets")
+    p_bbt.add_argument("--category", type=str, default=None, help="Filter by question text")
+    p_bbt.add_argument("--stake", type=float, default=10.0, help="Stake per simulated trade")
+    p_bbt.add_argument("--strategies", type=str, default=None, help="Comma-separated strategy names")
+    p_bbt.set_defaults(func=cmd_botbacktest)
 
     # calibrate
     p_cal = sub.add_parser("calibrate", help="Show classification accuracy report")

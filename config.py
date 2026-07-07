@@ -57,7 +57,9 @@ SCORING_MODEL = "claude-sonnet-4-6-20250514"
 # Polymarket order-book data alone. Paper-trades by default.
 STARTING_BANKROLL_USD = float(os.getenv("STARTING_BANKROLL_USD", "1000"))
 BOT_STRATEGIES = [
-    s.strip() for s in os.getenv("BOT_STRATEGIES", "favorite_longshot,mean_reversion").split(",") if s.strip()
+    s.strip() for s in os.getenv(
+        "BOT_STRATEGIES", "favorite_longshot,mean_reversion,momentum,arbitrage"
+    ).split(",") if s.strip()
 ]
 MAX_OPEN_POSITIONS = int(os.getenv("MAX_OPEN_POSITIONS", "10"))
 MAX_POSITION_PCT = float(os.getenv("MAX_POSITION_PCT", "0.05"))   # max % of bankroll per position
@@ -76,6 +78,14 @@ FAV_MAX_HOURS_TO_RESOLUTION = float(os.getenv("FAV_MAX_HOURS", "720"))  # 30 day
 # Mean-reversion strategy: trade when price deviates from its recent average.
 MEANREV_MIN_DEVIATION = float(os.getenv("MEANREV_MIN_DEVIATION", "0.05"))
 MEANREV_WINDOW = int(os.getenv("MEANREV_WINDOW", "5"))
+
+# Momentum strategy: follow a consistent move over the recent window.
+MOMENTUM_WINDOW = int(os.getenv("MOMENTUM_WINDOW", "5"))
+MOMENTUM_MIN_MOVE = float(os.getenv("MOMENTUM_MIN_MOVE", "0.05"))
+
+# Arbitrage strategy: buy YES+NO when their asks sum below 1 (risk-free).
+ARB_MIN_PROFIT = float(os.getenv("ARB_MIN_PROFIT", "0.01"))   # min profit per $1 pair
+ARB_SCAN_LIMIT = int(os.getenv("ARB_SCAN_LIMIT", "40"))       # top-N liquid markets to probe
 
 # --- Categories to track ---
 MARKET_CATEGORIES = [
