@@ -31,11 +31,13 @@ def _execute_live(signal: Signal) -> dict:
         from py_clob_client.client import ClobClient
         from py_clob_client.clob_types import OrderArgs, OrderType
 
+        # key = the private key that signs orders; funder = the Polymarket
+        # proxy wallet address that holds your USDC. These are distinct.
         client = ClobClient(
             host=config.POLYMARKET_HOST,
-            key=config.POLYMARKET_API_KEY,
+            key=config.POLYMARKET_PRIVATE_KEY,
             chain_id=137,
-            funder=config.POLYMARKET_PRIVATE_KEY,
+            funder=config.POLYMARKET_FUNDER_ADDRESS or None,
         )
 
         client.set_api_creds(client.create_or_derive_api_creds())
@@ -45,10 +47,15 @@ def _execute_live(signal: Signal) -> dict:
             return _log_and_return(signal, status="error_no_token", order_id=None)
 
         price = signal.market.yes_price if signal.side == "YES" else signal.market.no_price
+        if price <= 0 or price >= 1:
+            return _log_and_return(signal, status="error_bad_price", order_id=None)
+
+        # OrderArgs.size is the number of shares, not USD. shares = usd / price.
+        shares = round(signal.bet_amount / price, 2)
 
         order_args = OrderArgs(
-            price=price,
-            size=signal.bet_amount,
+            price=round(price, 3),
+            size=shares,
             side="BUY",
             token_id=token_id,
         )

@@ -3,6 +3,10 @@
 Polymarket Pipeline — CLI Interface
 
 Usage:
+    python cli.py bot                  # Market-data trading bot (no paid API keys, paper by default)
+    python cli.py bot --loop           # Run the bot continuously
+    python cli.py bot --live           # Bot with live trading
+    python cli.py portfolio            # Show the bot's paper-trading portfolio
     python cli.py watch                # V2: Event-driven pipeline (real-time news → classify → trade)
     python cli.py watch --live         # V2: With live trading
     python cli.py run                  # V1: Synchronous pipeline (RSS → score → trade)
@@ -62,6 +66,77 @@ def cmd_run(args):
         max_markets=args.max,
         lookback_hours=args.hours,
     )
+
+
+def cmd_bot(args):
+    """Market-data trading bot — self-contained, no paid API keys needed."""
+    import config
+    from bot import run_bot
+
+    if args.bankroll:
+        import portfolio
+        portfolio.reset(bankroll=args.bankroll)
+        console.print(f"[cyan]Portfolio reset to ${args.bankroll:,.2f} bankroll[/cyan]")
+    if args.strategies:
+        config.BOT_STRATEGIES = [s.strip() for s in args.strategies.split(",") if s.strip()]
+
+    run_bot(
+        live=args.live,
+        cycles=args.cycles,
+        loop=args.loop,
+        interval=args.interval,
+    )
+
+
+def cmd_portfolio(args):
+    """Show the bot's paper-trading portfolio and open positions."""
+    import portfolio
+    from markets import fetch_active_markets
+    from rich.panel import Panel
+
+    if args.reset is not None:
+        portfolio.reset(bankroll=args.reset if args.reset > 0 else None)
+        console.print(f"[cyan]Portfolio reset.[/cyan]")
+        return
+
+    markets = fetch_active_markets(limit=200)
+    prices = {m.condition_id: m.yes_price for m in markets if m.condition_id}
+    summ = portfolio.summary(prices)
+
+    pnl_color = "bright_green" if summ["total_pnl"] >= 0 else "red"
+    console.print(Panel(
+        f"[bold]Equity:[/bold] ${summ['equity']:,.2f}   "
+        f"[bold]Cash:[/bold] ${summ['cash']:,.2f}   "
+        f"[bold]P&L:[/bold] [{pnl_color}]${summ['total_pnl']:+,.2f} ({summ['return_pct']:+.1f}%)[/{pnl_color}]",
+        title="Bot Portfolio", style="bright_cyan",
+    ))
+
+    positions = portfolio.get_open_positions()
+    if not positions:
+        console.print("[dim]No open positions.[/dim]")
+        return
+
+    table = Table(show_header=True, header_style="bold cyan")
+    table.add_column("Market", max_width=42)
+    table.add_column("Side", width=4)
+    table.add_column("Shares", justify="right")
+    table.add_column("Entry", justify="right")
+    table.add_column("Mark", justify="right")
+    table.add_column("Cost", justify="right")
+    table.add_column("Unreal. P&L", justify="right")
+    table.add_column("Strategy", width=16)
+
+    for p in positions:
+        yes = prices.get(p.market_id)
+        mark = (yes if p.side == "YES" else 1 - yes) if yes is not None else p.avg_price
+        upnl = p.unrealized_pnl(mark)
+        c = "bright_green" if upnl >= 0 else "red"
+        table.add_row(
+            p.question[:42], p.side, f"{p.shares:.1f}", f"{p.avg_price:.3f}",
+            f"{mark:.3f}", f"${p.cost_basis:.2f}",
+            f"[{c}]${upnl:+.2f}[/{c}]", p.strategy or "—",
+        )
+    console.print(table)
 
 
 def cmd_backtest(args):
@@ -399,6 +474,22 @@ def main():
     p_dash = sub.add_parser("dashboard", help="Launch live terminal dashboard")
     p_dash.add_argument("--speed", type=float, default=60.0, help="Seconds between scan cycles")
     p_dash.set_defaults(func=cmd_dashboard)
+
+    # bot (market-data trading bot)
+    p_bot = sub.add_parser("bot", help="Market-data trading bot (no paid API keys)")
+    p_bot.add_argument("--live", action="store_true", help="Place real orders (needs credentials)")
+    p_bot.add_argument("--loop", action="store_true", help="Run continuously")
+    p_bot.add_argument("--cycles", type=int, default=1, help="Number of cycles (ignored with --loop)")
+    p_bot.add_argument("--interval", type=float, default=None, help="Seconds between cycles")
+    p_bot.add_argument("--bankroll", type=float, default=None, help="Reset paper bankroll before running")
+    p_bot.add_argument("--strategies", type=str, default=None, help="Comma-separated strategy names")
+    p_bot.set_defaults(func=cmd_bot)
+
+    # portfolio
+    p_pf = sub.add_parser("portfolio", help="Show bot paper-trading portfolio")
+    p_pf.add_argument("--reset", type=float, nargs="?", const=0, default=None,
+                      help="Reset portfolio (optionally to a given bankroll)")
+    p_pf.set_defaults(func=cmd_portfolio)
 
     # backtest
     p_bt = sub.add_parser("backtest", help="Backtest V2 strategy")
