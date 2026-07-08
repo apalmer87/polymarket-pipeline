@@ -20,6 +20,8 @@ class Book:
     token_id: str
     bids: list[tuple[float, float]] = field(default_factory=list)  # (price, size), best first
     asks: list[tuple[float, float]] = field(default_factory=list)  # (price, size), best first
+    tick_size: float = 0.01       # min price increment the market accepts
+    min_order_size: float = 5.0   # min shares per order
 
     @property
     def best_bid(self) -> float:
@@ -88,10 +90,18 @@ def fetch_book(token_id: str, client: httpx.Client | None = None) -> Book | None
         lvls.sort(key=lambda x: x[0], reverse=reverse)
         return lvls
 
+    def _f(v, d):
+        try:
+            return float(v)
+        except (TypeError, ValueError):
+            return d
+
     return Book(
         token_id=token_id,
         bids=_levels(data.get("bids"), reverse=True),
         asks=_levels(data.get("asks"), reverse=False),
+        tick_size=_f(data.get("tick_size"), 0.01),
+        min_order_size=_f(data.get("min_order_size"), 5.0),
     )
 
 

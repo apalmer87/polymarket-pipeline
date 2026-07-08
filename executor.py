@@ -25,6 +25,15 @@ async def execute_trade_async(signal: Signal) -> dict:
     return await asyncio.get_event_loop().run_in_executor(None, execute_trade, signal)
 
 
+def _round_to_tick(price: float, tick: float) -> float:
+    """Round a price to the market's tick size, kept strictly inside (0, 1)."""
+    if tick <= 0:
+        tick = 0.01
+    decimals = max(0, len(str(tick).split(".")[-1])) if "." in str(tick) else 0
+    rounded = round(round(price / tick) * tick, decimals)
+    return min(max(rounded, tick), 1 - tick)
+
+
 def build_clob_client():
     """
     Construct an authenticated Polymarket CLOB client.
@@ -62,15 +71,27 @@ def _execute_live(signal: Signal) -> dict:
         if not token_id:
             return _log_and_return(signal, status="error_no_token", order_id=None)
 
-        price = signal.market.yes_price if signal.side == "YES" else signal.market.no_price
+        # Price against the LIVE book, not the stale Gamma mid-price: use the
+        # best ask so a BUY is actually marketable, and align to the market's
+        # tick size / min order size so the CLOB doesn't reject the order.
+        from orderbook import fetch_book
+        book = fetch_book(token_id)
+        fallback = signal.market.yes_price if signal.side == "YES" else signal.market.no_price
+        price = book.best_ask if (book and book.best_ask) else fallback
         if price <= 0 or price >= 1:
             return _log_and_return(signal, status="error_bad_price", order_id=None)
 
+        tick = book.tick_size if book else 0.01
+        min_shares = book.min_order_size if book else 5.0
+        price = _round_to_tick(price, tick)
+
         # OrderArgs.size is the number of shares, not USD. shares = usd / price.
         shares = round(signal.bet_amount / price, 2)
+        if shares < min_shares:
+            return _log_and_return(signal, status="error_below_min_size", order_id=None)
 
         order_args = OrderArgs(
-            price=round(price, 3),
+            price=price,
             size=shares,
             side="BUY",
             token_id=token_id,

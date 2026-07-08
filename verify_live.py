@@ -125,6 +125,19 @@ def run_verify_live() -> bool:
             _pass(f"USDC balance visible: ${usdc:,.2f}")
         else:
             _warn("USDC balance reads as $0 — deposit funds before live trading")
+
+        # Allowance: the CLOB exchange must be approved to move your USDC.
+        allow_raw = bal.get("allowance", bal.get("allowances")) if isinstance(bal, dict) else None
+        try:
+            allow_val = float(allow_raw) if not isinstance(allow_raw, dict) else max(float(v) for v in allow_raw.values())
+        except (TypeError, ValueError):
+            allow_val = None
+        if allow_val is not None:
+            if allow_val > 0:
+                _pass("USDC allowance set — CLOB is approved to trade your funds")
+            else:
+                _warn("USDC allowance is 0 — enable trading in the Polymarket UI once,\n"
+                      "        or the client will reject orders. (client.update_balance_allowance)")
     except Exception as e:
         _warn(f"Could not read balance/allowance — {type(e).__name__}: {e}")
 
