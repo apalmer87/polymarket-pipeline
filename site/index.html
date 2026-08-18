@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Next Plumbing &amp; Heating — Oak Park, IL Plumber</title>
+<meta name="description" content="Licensed plumbing and heating in Oak Park, IL. Drain cleaning, sewer lines, water heaters, sump pumps, boilers and radiators. Rated 5.0 on Google. Call (773) 694-8042.">
+<link rel="canonical" href="https://nextplumbingandheating.com/">
+<meta name="theme-color" content="#0E1A1E">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Next Plumbing &amp; Heating">
+<meta property="og:url" content="https://nextplumbingandheating.com/">
+<meta property="og:title" content="Next Plumbing &amp; Heating — Oak Park, IL Plumber">
+<meta property="og:description" content="Licensed plumbing and heating in Oak Park, IL. Drain cleaning, sewer lines, water heaters, sump pumps, boilers and radiators. Rated 5.0 on Google. Call (773) 694-8042.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Next Plumbing &amp; Heating — Oak Park, IL Plumber">
+<meta name="twitter:description" content="Licensed plumbing and heating in Oak Park, IL. Call (773) 694-8042.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1A1E;
+  --ink-2:#16262B;
+  --ink-3:#1E343A;
+  --slate:#3C555C;
+  --muted:#526367;
+  --muted-d:#9BB0B4;
+  --paper:#F4F6F4;
+  --paper-2:#E9EDEA;
+  --line:#D3DAD6;
+  --line-d:#2C464C;
+  --verd:#14776A;
+  --verd-d:#0C5A50;
+  --brass:#C98A2E;
+  --brass-l:#E0A64A;
+  --red:#B3402E;
+  --display:'Archivo',system-ui,sans-serif;
+  --body:'Public Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --pad:clamp(20px,5vw,48px);
+  --sec:clamp(64px,9vw,120px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brass-l);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:1180px;margin:0 auto;padding-inline:var(--pad)}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{
+  position:absolute;left:12px;top:-60px;z-index:100;background:var(--brass);color:var(--ink);
+  font-family:var(--display);font-weight:700;padding:12px 18px;border-radius:0 0 6px 6px;text-decoration:none;transition:top .15s ease;
+}
+.skip:focus{top:0}
+.mono{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.eyebrow{color:var(--verd);display:block;margin-bottom:18px}
+.eyebrow-d{color:var(--brass-l)}
+h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance}
+h1{font-size:clamp(2.5rem,6vw,4.4rem);font-weight:800;letter-spacing:-.035em;line-height:.98;overflow-wrap:break-word}
+h2{font-size:clamp(1.9rem,3.9vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:1.04}
+h3{font-size:1.12rem;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+p{margin:0 0 1em}
+.lede{font-size:clamp(1.05rem,1.6vw,1.22rem);line-height:1.6;color:var(--slate);max-width:56ch}
+.lede-d{color:var(--muted-d)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--display);font-weight:700;font-size:1.02rem;letter-spacing:-.01em;
+  padding:15px 24px;border-radius:6px;border:1.5px solid transparent;
+  text-decoration:none;cursor:pointer;transition:transform .15s ease,background .15s ease,border-color .15s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-brass{background:var(--brass);color:var(--ink)}
+.btn-brass:hover{background:var(--brass-l)}
+.btn-ghost{border-color:var(--line-d);color:var(--paper)}
+.btn-ghost:hover{border-color:var(--muted-d);background:rgba(255,255,255,.04)}
+.btn-verd{background:var(--verd-d);color:#fff}
+.btn-verd:hover{background:var(--verd)}
+.btn-outline{border-color:var(--ink);color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:var(--paper)}
+
+/* ---------- header ---------- */
+.hdr{
+  position:sticky;top:0;z-index:60;background:var(--ink);
+  border-bottom:1px solid transparent;transition:border-color .2s ease;
+}
+.hdr.stuck{border-bottom-color:var(--line-d)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
+.brand{display:flex;align-items:baseline;gap:9px;text-decoration:none;color:var(--paper)}
+.brand-mark{font-family:var(--display);font-weight:800;font-size:1.22rem;letter-spacing:-.04em}
+.brand-sub{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-d)}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{
+  font-family:var(--mono);font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted-d);text-decoration:none;transition:color .15s ease;
+}
+.nav a:hover{color:var(--paper)}
+.hdr-call{
+  display:inline-flex;align-items:center;gap:9px;background:var(--brass);color:var(--ink);
+  font-family:var(--display);font-weight:700;font-size:.98rem;padding:10px 18px;border-radius:5px;text-decoration:none;
+}
+.hdr-call:hover{background:var(--brass-l)}
+@media(max-width:960px){.nav{display:none}}
+@media(max-width:520px){
+  .hdr-call{font-size:.86rem;padding:9px 13px;gap:7px}
+  .brand-sub{display:none}
+}
+
+/* ---------- hero ---------- */
+.hero{background:var(--ink);color:var(--paper);padding-block:clamp(48px,7vw,84px) clamp(56px,7vw,88px);position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,0.96fr);gap:clamp(32px,5vw,64px);align-items:center}
+.hero h1 .accent{color:var(--brass-l)}
+.hero .lede{margin-top:22px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.tel-num{font-family:var(--mono);font-weight:600;letter-spacing:.01em}
+.trust{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:34px;padding-top:26px;border-top:1px solid var(--line-d)}
+.trust li{list-style:none;display:flex;align-items:center;gap:8px;font-size:.87rem;color:var(--muted-d)}
+.trust b{color:var(--paper);font-weight:600}
+.stars{color:var(--brass-l);letter-spacing:.08em;font-size:.82rem}
+
+/* ---------- diagram ---------- */
+.iso-panel{background:var(--ink-2);border:1px solid var(--line-d);border-radius:10px;padding:18px 14px 14px}
+.iso-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 8px 12px;border-bottom:1px solid var(--line-d);margin-bottom:8px}
+.iso-head .t{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-d)}
+.iso-head .n{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;color:#4E6E76}
+.iso svg{display:block;width:100%;height:auto}
+.floorline{stroke:#254046;stroke-width:1;stroke-dasharray:5 6}
+.pipe-dwv{fill:none;stroke:#8FA6AB;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pipe-sup{fill:none;stroke:#2AA491;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pipe-heat{fill:none;stroke:var(--brass);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.flow{stroke-dasharray:7 11;animation:flow 2.6s linear infinite}
+.flow-2{stroke-dasharray:6 12;animation:flow 3.4s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-36}}
+.fixture{fill:#16262B;stroke:#8FA6AB;stroke-width:1.6}
+.appliance{fill:#16262B;stroke:#8FA6AB;stroke-width:1.6}
+.leader{stroke:#33525A;stroke-width:1;fill:none}
+.calltxt{font-family:var(--mono);font-size:11px;letter-spacing:.09em;fill:var(--muted-d);text-transform:uppercase}
+.node{cursor:pointer}
+.node .hit{fill:transparent}
+.node .dot{fill:var(--ink);stroke:var(--brass);stroke-width:2.2;transition:r .18s ease,stroke .18s ease}
+.node .halo{fill:var(--brass);opacity:0;transition:opacity .18s ease}
+.node:hover .dot,.node:focus-visible .dot,.node.on .dot{r:8;stroke:var(--brass-l)}
+.node:hover .halo,.node:focus-visible .halo,.node.on .halo{opacity:.16}
+.iso-cap{
+  margin-top:10px;padding:12px 10px 4px;border-top:1px solid var(--line-d);
+  min-height:56px;display:flex;gap:12px;align-items:flex-start;
+}
+.iso-cap .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-l);white-space:nowrap;padding-top:3px}
+.iso-cap .v{font-size:.9rem;line-height:1.5;color:var(--muted-d);margin:0}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;padding:8px 10px 0}
+.legend span{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#8CA6AC}
+.legend i{width:16px;height:2px;display:block}
+.chips{display:none;flex-wrap:wrap;gap:7px;padding:12px 8px 2px;border-top:1px solid var(--line-d);margin-top:8px}
+.chips button{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--line-d);color:var(--muted-d);
+  padding:8px 12px;border-radius:100px;cursor:pointer;
+}
+.chips button[aria-pressed="true"]{border-color:var(--brass);color:var(--brass-l)}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .iso-panel{order:2}
+  .calltxt,.leader{display:none}
+  .chips{display:flex}
+}
+
+/* ---------- emergency band ---------- */
+.emerg{background:var(--brass);color:var(--ink)}
+.emerg-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:20px 0}
+.emerg h2{font-size:clamp(1.15rem,2.2vw,1.5rem);letter-spacing:-.02em}
+.emerg p{margin:4px 0 0;font-size:.92rem;max-width:60ch}
+.emerg a{
+  font-family:var(--display);font-weight:700;background:var(--ink);color:var(--brass-l);
+  padding:13px 22px;border-radius:5px;text-decoration:none;white-space:nowrap;
+}
+.emerg a:hover{background:var(--ink-3)}
+
+/* ---------- sections ---------- */
+.sec{padding-block:var(--sec)}
+.sec-dark{background:var(--ink);color:var(--paper)}
+.sec-alt{background:var(--paper-2)}
+.sec-head{max-width:62ch;margin-bottom:clamp(36px,5vw,56px)}
+.sec-head p{color:var(--slate);font-size:1.05rem;margin-top:14px}
+.sec-dark .sec-head p{color:var(--muted-d)}
+
+/* services */
+.svc-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px)}
+.svc-col h3{
+  font-family:var(--mono);font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--verd);padding-bottom:14px;border-bottom:2px solid var(--ink);margin-bottom:4px;
+}
+.svc-col.heat h3{color:#9C6A1E}
+.svc-item{display:grid;grid-template-columns:1fr;gap:2px;padding:18px 0;border-bottom:1px solid var(--line)}
+.svc-item .nm{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+.svc-item .ds{font-size:.93rem;color:var(--muted);line-height:1.55}
+.svc-col.flash{animation:flash 1.4s ease}
+@keyframes flash{0%,100%{background:transparent}25%{background:rgba(20,119,106,.09)}}
+@media(max-width:760px){.svc-cols{grid-template-columns:1fr}}
+
+/* oak park cards */
+.op-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d);border-radius:10px;overflow:hidden}
+.op-card{background:var(--ink);padding:clamp(22px,2.6vw,30px)}
+.op-card .yr{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;color:var(--brass-l);display:block;margin-bottom:14px}
+.op-card h3{margin-bottom:10px}
+.op-card p{font-size:.92rem;color:var(--muted-d);line-height:1.6;margin:0}
+@media(max-width:1000px){.op-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.op-grid{grid-template-columns:1fr}}
+
+/* process */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(22px,3vw,40px);counter-reset:s}
+.step .num{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--verd);display:block;padding-bottom:14px;border-bottom:2px solid var(--ink);margin-bottom:18px}
+.step h3{margin-bottom:8px}
+.step p{font-size:.93rem;color:var(--muted);margin:0}
+@media(max-width:820px){.proc{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.proc{grid-template-columns:1fr}}
+
+/* reviews */
+.rev-top{display:flex;flex-wrap:wrap;align-items:flex-end;gap:clamp(20px,4vw,56px);margin-bottom:44px}
+.rev-score{font-family:var(--display);font-weight:800;font-size:clamp(3.4rem,8vw,5.4rem);line-height:.85;letter-spacing:-.04em}
+.rev-meta .stars{font-size:1.15rem;display:block;margin-bottom:6px}
+.rev-meta p{margin:0;color:var(--muted);font-size:.93rem}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rev-card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:26px}
+.rev-card .stars{font-size:.92rem;display:block;margin-bottom:14px}
+.rev-card p{font-size:.98rem;line-height:1.6;margin:0 0 16px}
+.rev-card .who{font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.sec-alt .rev-card{background:#fff}
+@media(max-width:860px){.rev-grid{grid-template-columns:1fr}}
+
+/* area */
+.area-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(30px,5vw,64px);align-items:center}
+.towns{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:0}
+.towns li{
+  font-family:var(--mono);font-size:.73rem;letter-spacing:.09em;text-transform:uppercase;
+  border:1px solid var(--line-d);color:var(--muted-d);padding:8px 13px;border-radius:100px;
+}
+.towns li.home{border-color:var(--brass);color:var(--brass-l)}
+@media(max-width:820px){.area-grid{grid-template-columns:1fr}}
+
+/* form */
+.book-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,5vw,72px)}
+.info-block{margin-bottom:26px}
+.info-block .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--verd);display:block;margin-bottom:6px}
+.info-block .v{font-size:1.05rem;font-weight:500}
+.info-block a{text-decoration:none;border-bottom:1.5px solid var(--line)}
+.info-block a:hover{border-bottom-color:var(--ink)}
+.card-form{background:#fff;border:1px solid var(--line);border-radius:12px;padding:clamp(24px,3.4vw,36px)}
+.fld{margin-bottom:16px}
+.fld label{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.fld input,.fld select,.fld textarea{
+  width:100%;font-family:var(--body);font-size:1rem;color:var(--ink);
+  background:var(--paper);border:1.5px solid var(--line);border-radius:6px;padding:12px 14px;
+}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--verd);outline:none;box-shadow:0 0 0 3px rgba(20,119,106,.15)}
+.fld textarea{resize:vertical;min-height:92px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.err{color:var(--red);font-size:.82rem;margin-top:6px;display:none}
+.fld.bad input,.fld.bad select{border-color:var(--red)}
+.fld.bad .err{display:block}
+.form-note{font-size:.83rem;color:var(--muted);margin:14px 0 0}
+.sent{display:none;text-align:center;padding:34px 10px}
+.sent.on{display:block}
+.sent .tick{width:52px;height:52px;border-radius:50%;background:var(--verd-d);color:#fff;display:grid;place-items:center;margin:0 auto 18px;font-size:1.5rem}
+.card-form.done .fields{display:none}
+@media(max-width:860px){.book-grid{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+
+/* footer */
+.ftr{background:var(--ink);color:var(--muted-d);padding-block:56px 40px;font-size:.9rem}
+.ftr-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;padding-bottom:34px;border-bottom:1px solid var(--line-d)}
+.ftr h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);margin-bottom:14px;font-weight:500}
+.ftr ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.ftr a{text-decoration:none}
+.ftr a:hover{color:var(--paper)}
+.ftr-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:22px;font-size:.78rem;color:#7C979D}
+@media(max-width:760px){.ftr-grid{grid-template-columns:1fr}}
+
+/* mobile call bar */
+.callbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+  background:var(--brass);border-top:1px solid #8E5F14;
+  padding:10px max(12px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom));
+  gap:10px;
+}
+.callbar a{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;
+  font-family:var(--display);font-weight:700;font-size:1rem;padding:14px 10px;border-radius:6px;
+}
+.callbar .c1{background:var(--ink);color:var(--brass-l)}
+.callbar .c2{background:transparent;color:var(--ink);border:1.5px solid rgba(14,26,30,.35)}
+@media(max-width:860px){.callbar{display:flex}body{padding-bottom:78px}}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#top">Skip to content</a>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#top">
+      <span class="brand-mark">NEXT</span>
+      <span class="brand-sub">Plumbing &amp; Heating</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#oakpark">Old houses</a>
+      <a href="#process">How it works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#book">Book</a>
+    </nav>
+    <a class="hdr-call" href="tel:+17736948042">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1.1l-2.3 2.1z"/></svg>
+      <span class="lbl">(773) 694-8042</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="mono eyebrow eyebrow-d">Oak Park, IL · Licensed &amp; insured</span>
+      <h1>Plumbing and heating for <span class="accent">Oak Park's old houses.</span></h1>
+      <p class="lede lede-d">Clay sewer laterals, galvanized supply lines, steam radiators, wet basements. We work on these every week — not once a year — and we tell you the price before we start.</p>
+      <div class="cta-row">
+        <a class="btn btn-brass" href="tel:+17736948042">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1.1l-2.3 2.1z"/></svg>
+          Call <span class="tel-num">(773) 694-8042</span>
+        </a>
+        <a class="btn btn-ghost" href="#book">Request a callback</a>
+      </div>
+      <ul class="trust">
+        <li><span class="stars" aria-hidden="true">★★★★★</span> <b>5.0</b> <span class="sr">out of 5 stars,</span> from 25 Google reviews</li>
+        <li><b>Phones open until 10 PM</b></li>
+        <li>Serving Oak Park &amp; the near west side</li>
+      </ul>
+    </div>
+
+    <!-- ---- signature: interactive riser diagram ---- -->
+    <div class="iso-panel">
+      <div class="iso-head">
+        <span class="t">Riser diagram — typical Oak Park two-flat</span>
+        <span class="n">SHT 1</span>
+      </div>
+      <div class="iso">
+        <svg viewBox="-40 0 716 600" role="img" aria-label="Schematic riser diagram of a house's plumbing and heating, with labelled service points.">
+          <!-- floor lines -->
+          <line class="floorline" x1="130" y1="56"  x2="510" y2="56"/>
+          <line class="floorline" x1="130" y1="196" x2="510" y2="196"/>
+          <line class="floorline" x1="130" y1="330" x2="510" y2="330"/>
+          <line class="floorline" x1="130" y1="470" x2="510" y2="470"/>
+
+          <!-- DWV: vent + soil stack + building drain -->
+          <path class="pipe-dwv" d="M310 36 H330"/>
+          <path class="pipe-dwv" d="M320 36 V450 L356 486 H600"/>
+          <path class="pipe-dwv" d="M594 480 l10 6 -10 6"/>
+          <!-- 2nd floor branch -->
+          <path class="pipe-dwv" d="M320 186 L232 180 V168"/>
+          <rect class="fixture" x="196" y="152" width="34" height="16" rx="3"/>
+          <!-- 1st floor branch -->
+          <path class="pipe-dwv" d="M320 314 L240 308 V296"/>
+          <rect class="fixture" x="202" y="280" width="38" height="16" rx="3"/>
+
+          <!-- supply (verdigris): service in, riser, spurs -->
+          <path class="pipe-sup flow" d="M96 494 H272 V166 H240"/>
+          <path class="pipe-sup flow-2" d="M272 302 H246"/>
+          <path class="pipe-sup" d="M272 424 H258"/>
+
+          <!-- water heater -->
+          <rect class="appliance" x="214" y="388" width="44" height="72" rx="6"/>
+          <path class="pipe-sup" d="M236 388 V366 H272"/>
+
+          <!-- sump pit -->
+          <path class="pipe-dwv" d="M132 448 v34 h38 v-34"/>
+          <path class="pipe-sup" d="M151 452 V410 H104"/>
+          <path class="pipe-sup" d="M110 404 l-8 6 8 6"/>
+
+          <!-- boiler + heating loop -->
+          <rect class="appliance" x="396" y="398" width="70" height="62" rx="5"/>
+          <path class="pipe-heat flow" d="M414 398 V316 H436"/>
+          <path class="pipe-heat" d="M488 316 H502 V398 H448"/>
+          <rect class="appliance" x="436" y="302" width="52" height="26" rx="3"/>
+          <path class="pipe-heat" d="M444 306 v18 M456 306 v18 M468 306 v18 M480 306 v18"/>
+
+          <!-- leaders -->
+          <path class="leader" d="M232 168 L160 120 H104"/>
+          <path class="leader" d="M240 300 L168 258 H104"/>
+          <path class="leader" d="M236 398 L176 352 H104"/>
+          <path class="leader" d="M151 466 L126 508 H104"/>
+          <path class="leader" d="M435 404 L506 362 H548"/>
+          <path class="leader" d="M470 496 L516 532 H548"/>
+
+          <text class="calltxt" x="96"  y="124" text-anchor="end">Fixtures &amp; taps</text>
+          <text class="calltxt" x="96"  y="262" text-anchor="end">Drain cleaning</text>
+          <text class="calltxt" x="96"  y="356" text-anchor="end">Water heaters</text>
+          <text class="calltxt" x="96"  y="512" text-anchor="end">Sump &amp; backup</text>
+          <text class="calltxt" x="556" y="366">Boiler &amp; heat</text>
+          <text class="calltxt" x="556" y="536">Sewer lateral</text>
+
+          <!-- nodes -->
+          <g class="node" data-k="Fixtures &amp; taps" data-c="Faucets, toilets, tub and shower valves, and section repipes when the old galvanized pipe finally gives up." data-go="plumbing" tabindex="0" role="button" aria-label="Fixtures and taps">
+            <circle class="halo" cx="232" cy="168" r="16"/><circle class="hit" cx="232" cy="168" r="20"/><circle class="dot" cx="232" cy="168" r="6"/>
+          </g>
+          <g class="node" data-k="Drain cleaning" data-c="Kitchen, bath and floor drains cleared by cable or hydro-jet, with a camera down the line if it keeps coming back." data-go="plumbing" tabindex="0" role="button" aria-label="Drain cleaning">
+            <circle class="halo" cx="240" cy="300" r="16"/><circle class="hit" cx="240" cy="300" r="20"/><circle class="dot" cx="240" cy="300" r="6"/>
+          </g>
+          <g class="node" data-k="Water heaters" data-c="Repair, replacement and tankless conversions — sized to the house, vented to code, hauled away same visit." data-go="plumbing" tabindex="0" role="button" aria-label="Water heaters">
+            <circle class="halo" cx="236" cy="398" r="16"/><circle class="hit" cx="236" cy="398" r="20"/><circle class="dot" cx="236" cy="398" r="6"/>
+          </g>
+          <g class="node" data-k="Sump &amp; backup" data-c="Sump and ejector pumps, battery backup, check valves and overhead sewer work for basements that flood." data-go="plumbing" tabindex="0" role="button" aria-label="Sump pumps and backup">
+            <circle class="halo" cx="151" cy="462" r="16"/><circle class="hit" cx="151" cy="462" r="20"/><circle class="dot" cx="151" cy="462" r="6"/>
+          </g>
+          <g class="node" data-k="Boiler &amp; heat" data-c="Boilers, furnaces, steam and hot-water radiators — traps, vents, zone valves and the annual tune-up before it gets cold." data-go="heating" tabindex="0" role="button" aria-label="Boilers and heating">
+            <circle class="halo" cx="435" cy="404" r="16"/><circle class="hit" cx="435" cy="404" r="20"/><circle class="dot" cx="435" cy="404" r="6"/>
+          </g>
+          <g class="node" data-k="Sewer lateral" data-c="Rodding, camera inspection, spot repairs and full replacement of the clay line running out to the street." data-go="plumbing" tabindex="0" role="button" aria-label="Sewer lateral">
+            <circle class="halo" cx="470" cy="496" r="16"/><circle class="hit" cx="470" cy="496" r="20"/><circle class="dot" cx="470" cy="496" r="6"/>
+          </g>
+        </svg>
+      </div>
+      <div class="chips" id="chips" aria-label="Service points on the diagram"></div>
+      <div class="legend" aria-hidden="true">
+        <span><i style="background:#2AA491"></i>Water supply</span>
+        <span><i style="background:#8FA6AB"></i>Drain, waste, vent</span>
+        <span><i style="background:#C98A2E"></i>Heating loop</span>
+      </div>
+      <div class="iso-cap" id="isocap" aria-live="polite">
+        <span class="k" id="isok">Six places we work</span>
+        <p class="v" id="isov">Tap any fitting on the diagram to see what we do there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EMERGENCY ============ -->
+<section class="emerg">
+  <div class="wrap emerg-in">
+    <div>
+      <h2>Water on the floor, or no heat?</h2>
+      <p>Shut the valve, then call. Someone picks up until 10 PM and we'll talk you through what to do while we're on the way.</p>
+    </div>
+    <a href="tel:+17736948042">Call (773) 694-8042</a>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono eyebrow">What we do</span>
+      <h2>Two trades, one truck.</h2>
+      <p>Most calls in Oak Park end up touching both systems — a leaking boiler feed, a water heater that also feeds the radiators. We carry the parts for both.</p>
+    </div>
+    <div class="svc-cols">
+      <div class="svc-col" id="plumbing">
+        <h3>Plumbing</h3>
+        <div class="svc-item"><span class="nm">Drain cleaning &amp; rodding</span><span class="ds">Cable and hydro-jet, kitchen line to main.</span></div>
+        <div class="svc-item"><span class="nm">Sewer lines</span><span class="ds">Camera inspection, spot repair, full replacement.</span></div>
+        <div class="svc-item"><span class="nm">Water heaters</span><span class="ds">Tank, tankless, and power-vent replacements.</span></div>
+        <div class="svc-item"><span class="nm">Sump &amp; ejector pumps</span><span class="ds">Pumps, battery backup, check valves, pit work.</span></div>
+        <div class="svc-item"><span class="nm">Leaks &amp; pipe repair</span><span class="ds">Copper, PEX and cast iron, including in-wall.</span></div>
+        <div class="svc-item"><span class="nm">Repiping</span><span class="ds">Galvanized out, copper or PEX in — room by room or whole house.</span></div>
+        <div class="svc-item"><span class="nm">Fixtures &amp; faucets</span><span class="ds">Toilets, sinks, tub and shower valves, disposals.</span></div>
+        <div class="svc-item"><span class="nm">Flood control</span><span class="ds">Overhead sewers and backflow prevention.</span></div>
+      </div>
+      <div class="svc-col heat" id="heating">
+        <h3>Heating</h3>
+        <div class="svc-item"><span class="nm">Boiler repair &amp; install</span><span class="ds">Steam and hot water, gas conversion, controls.</span></div>
+        <div class="svc-item"><span class="nm">Radiators</span><span class="ds">Traps, vents, valves, bleeding, and replacements.</span></div>
+        <div class="svc-item"><span class="nm">Furnaces</span><span class="ds">Repair, replacement and venting.</span></div>
+        <div class="svc-item"><span class="nm">Zoning &amp; thermostats</span><span class="ds">Zone valves and controls for uneven rooms.</span></div>
+        <div class="svc-item"><span class="nm">Gas lines</span><span class="ds">New runs, leak testing, appliance hookups.</span></div>
+        <div class="svc-item"><span class="nm">Seasonal tune-ups</span><span class="ds">Fall service before the first cold snap.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OAK PARK ============ -->
+<section class="sec sec-dark" id="oakpark">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono eyebrow eyebrow-d">Local knowledge</span>
+      <h2>Built for houses built a century ago.</h2>
+      <p class="lede lede-d">Oak Park's housing stock has a short list of predictable problems. Knowing them ahead of time is the difference between a two-hour visit and a three-day guess.</p>
+    </div>
+    <div class="op-grid">
+      <article class="op-card">
+        <span class="yr mono">Clay lateral</span>
+        <h3>Tree roots in the sewer line</h3>
+        <p>The parkway elms and maples that make the village beautiful send roots straight into the joints of old clay pipe. We rod it, camera it, and tell you honestly whether it's an annual maintenance line or one that needs replacing.</p>
+      </article>
+      <article class="op-card">
+        <span class="yr mono">Galvanized</span>
+        <h3>Brown water, weak shower</h3>
+        <p>Supply pipe from the 1920s rusts shut from the inside. Second-floor pressure drops first. Repiping doesn't have to be all at once — we'll show you which runs are worth doing now.</p>
+      </article>
+      <article class="op-card">
+        <span class="yr mono">Steam &amp; hot water</span>
+        <h3>Radiators that bang or run cold</h3>
+        <p>A well-tuned steam system still heats a drafty foursquare better than anything. Usually it's traps, vents or pitch — not the boiler. We check the cheap things first.</p>
+      </article>
+      <article class="op-card">
+        <span class="yr mono">Combined sewer</span>
+        <h3>Basements that back up in storms</h3>
+        <p>When the village main surcharges, it comes up through your floor drain. Overhead sewers, backflow valves and a properly sized ejector pit are the fix — and we'll tell you which one you actually need.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono eyebrow">How a call goes</span>
+      <h2>No mystery, no surprise invoice.</h2>
+    </div>
+    <div class="proc">
+      <div class="step"><span class="num">01 / Call</span><h3>A person answers</h3><p>Not a call centre. Describe what's happening and we'll tell you whether it can wait until morning.</p></div>
+      <div class="step"><span class="num">02 / Schedule</span><h3>A real arrival window</h3><p>You get a window, and a message when we're on the way — so you're not sitting home all day.</p></div>
+      <div class="step"><span class="num">03 / Diagnose</span><h3>Price before work</h3><p>We show you the problem, explain the options, and give you the number. You decide before anything starts.</p></div>
+      <div class="step"><span class="num">04 / Finish</span><h3>Cleaned up behind us</h3><p>Boots off, floor dry, old parts hauled away, and a straight answer on what to watch for next.</p></div>
+    </div>
+    <p class="lede" style="margin-top:clamp(32px,4vw,48px);padding-top:26px;border-top:1px solid var(--line);max-width:64ch">
+      <strong>What it costs to find out:</strong> [Insert your diagnostic or service-call fee here — e.g. "$X to come out and diagnose, credited toward the repair if you go ahead."] Naming a number here is the single biggest thing that gets people to call.
+    </p>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="sec sec-alt" id="reviews">
+  <div class="wrap">
+    <div class="rev-top">
+      <div>
+        <span class="mono eyebrow">Reviews</span>
+        <div class="rev-score">5.0</div>
+      </div>
+      <div class="rev-meta">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <p><span class="sr">Rated 5.0 out of 5. </span>25 reviews on Google · every one of them five stars</p>
+      </div>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card">
+        <span class="stars" aria-hidden="true">★★★★★</span><span class="sr">Rated 5 out of 5.</span>
+        <p>[Paste a real Google review here — the whole review, in the customer's words, with their first name and last initial.]</p>
+        <span class="who">Google review</span>
+      </div>
+      <div class="rev-card">
+        <span class="stars" aria-hidden="true">★★★★★</span><span class="sr">Rated 5 out of 5.</span>
+        <p>[Second real review. Pick one that names a specific job — a water heater, a sewer line — rather than a general compliment.]</p>
+        <span class="who">Google review</span>
+      </div>
+      <div class="rev-card">
+        <span class="stars" aria-hidden="true">★★★★★</span><span class="sr">Rated 5 out of 5.</span>
+        <p>[Third real review. Ideally one that mentions price or punctuality, since that's what people are nervous about.]</p>
+        <span class="who">Google review</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AREA ============ -->
+<section class="sec sec-dark" id="area">
+  <div class="wrap area-grid">
+    <div>
+      <span class="mono eyebrow eyebrow-d">Service area</span>
+      <h2>Twenty minutes, most of the time.</h2>
+      <p class="lede lede-d">Based on North Harlem Avenue in Oak Park, which puts us close to the whole near west side.</p>
+    </div>
+    <ul class="towns">
+      <li class="home">Oak Park</li><li>River Forest</li><li>Forest Park</li><li>Berwyn</li>
+      <li>Cicero</li><li>Elmwood Park</li><li>Riverside</li><li>North Riverside</li>
+      <li>Maywood</li><li>Brookfield</li><li>Austin</li><li>Galewood</li>
+      <li>Norridge</li><li>Melrose Park</li><li>Westchester</li><li>La Grange Park</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ BOOK ============ -->
+<section class="sec" id="book">
+  <div class="wrap book-grid">
+    <div>
+      <span class="mono eyebrow">Get on the schedule</span>
+      <h2>Call, or leave your number.</h2>
+      <p class="lede" style="margin-bottom:32px">If it's leaking right now, call. If it can wait, the form is fine — we return every message the same day.</p>
+
+      <div class="info-block">
+        <span class="k">Phone</span>
+        <span class="v"><a href="tel:+17736948042">(773) 694-8042</a></span>
+      </div>
+      <div class="info-block">
+        <span class="k">Hours</span>
+        <span class="v">Open daily · closes 10 PM</span>
+      </div>
+      <div class="info-block">
+        <span class="k">Address</span>
+        <span class="v"><a href="https://maps.google.com/?q=1515+N+Harlem+Ave+%23513,+Oak+Park,+IL+60302" target="_blank" rel="noopener">1515 N Harlem Ave #513<br>Oak Park, IL 60302</a></span>
+      </div>
+      <div class="info-block">
+        <span class="k">Credentials</span>
+        <span class="v">Licensed &amp; insured in Illinois</span>
+      </div>
+    </div>
+
+    <div class="card-form" id="cardform">
+      <div class="fields" id="fields">
+        <div class="fld">
+          <label for="f-name">Your name</label>
+          <input id="f-name" aria-describedby="e-name" aria-invalid="false" type="text" autocomplete="name" placeholder="Jane Doe">
+          <span class="err" id="e-name">Please add your name.</span>
+        </div>
+        <div class="two">
+          <div class="fld">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" aria-describedby="e-phone" aria-invalid="false" type="tel" inputmode="tel" autocomplete="tel" placeholder="(708) 555-0142">
+            <span class="err" id="e-phone">We need a number to call you back.</span>
+          </div>
+          <div class="fld">
+            <label for="f-town">Town</label>
+            <input id="f-town" aria-describedby="e-town" aria-invalid="false" type="text" autocomplete="address-level2" placeholder="Oak Park">
+            <span class="err" id="e-town">Which town are you in?</span>
+          </div>
+        </div>
+        <div class="fld">
+          <label for="f-issue">What's going on</label>
+          <select id="f-issue" aria-describedby="e-issue" aria-invalid="false">
+            <option value="">Choose one…</option>
+            <option>Clogged or slow drain</option>
+            <option>Sewer backup</option>
+            <option>Leak or burst pipe</option>
+            <option>No hot water / water heater</option>
+            <option>Sump pump or wet basement</option>
+            <option>No heat / boiler or furnace</option>
+            <option>Radiator problem</option>
+            <option>Fixture or faucet install</option>
+            <option>Estimate for a bigger job</option>
+            <option>Something else</option>
+          </select>
+          <span class="err" id="e-issue">Pick the closest match.</span>
+        </div>
+        <div class="fld">
+          <label for="f-notes">Anything else (optional)</label>
+          <textarea id="f-notes" placeholder="Second-floor bathroom, started this morning, two-flat built around 1915…"></textarea>
+        </div>
+        <button class="btn btn-verd" id="submit" type="button" style="width:100%;justify-content:center">Request a callback</button>
+        <p class="form-note">We only use your number to call you back about this job.</p>
+      </div>
+      <div class="sent" id="sent">
+        <div class="tick" aria-hidden="true">✓</div>
+        <h3 style="font-size:1.3rem;margin-bottom:8px">Got it — we'll call you back.</h3>
+        <p style="color:var(--muted);font-size:.95rem;margin-bottom:22px">Usually within a couple of hours during business hours.</p>
+        <a class="btn btn-outline" href="tel:+17736948042">Or call now: (773) 694-8042</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:14px"><span class="brand-mark">NEXT</span><span class="brand-sub">Plumbing &amp; Heating</span></a>
+        <p style="margin-top:12px;max-width:38ch">Licensed plumbing and heating for Oak Park and the near west suburbs. Family-run, five stars on Google, and still answering the phone ourselves.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Drain cleaning</a></li>
+          <li><a href="#services">Sewer lines</a></li>
+          <li><a href="#services">Water heaters</a></li>
+          <li><a href="#services">Sump pumps</a></li>
+          <li><a href="#services">Boilers &amp; radiators</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+17736948042">(773) 694-8042</a></li>
+          <li>1515 N Harlem Ave #513<br>Oak Park, IL 60302</li>
+          <li>Open daily until 10 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <span>© <span id="yr">2026</span> Next Plumbing &amp; Heating. Licensed &amp; insured in Illinois.</span>
+      <span>Oak Park · River Forest · Forest Park · Berwyn · Cicero</span>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="c1" href="tel:+17736948042">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1.1l-2.3 2.1z"/></svg>
+    (773) 694-8042
+  </a>
+  <a class="c2" href="#book">Book online</a>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Plumber",
+  "name":"Next Plumbing & Heating",
+  "telephone":"+1-773-694-8042",
+  "url":"https://nextplumbingandheating.com",
+  "address":{"@type":"PostalAddress","streetAddress":"1515 N Harlem Ave #513","addressLocality":"Oak Park","addressRegion":"IL","postalCode":"60302","addressCountry":"US"},
+  "geo":{"@type":"GeoCoordinates","latitude":41.9106,"longitude":-87.8067},
+  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"22:00"}],
+  "areaServed":[
+    {"@type":"City","name":"Oak Park"},{"@type":"City","name":"River Forest"},
+    {"@type":"City","name":"Forest Park"},{"@type":"City","name":"Berwyn"},
+    {"@type":"City","name":"Cicero"},{"@type":"City","name":"Elmwood Park"},
+    {"@type":"City","name":"Riverside"},{"@type":"City","name":"Maywood"}
+  ],
+  "hasOfferCatalog":{
+    "@type":"OfferCatalog","name":"Plumbing and heating services",
+    "itemListElement":[
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Drain cleaning and rodding"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sewer line camera inspection and repair"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Water heater repair and installation"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sump and ejector pump service"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Repiping"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Boiler and radiator service"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Furnace repair and installation"}}
+    ]
+  }
+}
+</script>
+
+<script>
+(function(){
+  "use strict";
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // header hairline on scroll
+  var hdr = document.getElementById('hdr');
+  var onScroll = function(){ hdr.classList.toggle('stuck', window.scrollY > 8); };
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // diagram nodes
+  var capK = document.getElementById('isok'),
+      capV = document.getElementById('isov'),
+      nodes = Array.prototype.slice.call(document.querySelectorAll('.node')),
+      defK = capK.textContent, defV = capV.textContent, timer;
+
+  function show(n){
+    clearTimeout(timer);
+    nodes.forEach(function(x){ x.classList.remove('on'); });
+    n.classList.add('on');
+    capK.innerHTML = n.dataset.k;
+    capV.textContent = n.dataset.c;
+  }
+  function clear(){
+    timer = setTimeout(function(){
+      if (document.querySelector('.node:focus-visible')) return;
+      nodes.forEach(function(x){ x.classList.remove('on'); });
+      capK.textContent = defK; capV.textContent = defV;
+    }, 180);
+  }
+  nodes.forEach(function(n){
+    n.addEventListener('mouseenter', function(){ show(n); });
+    n.addEventListener('mouseleave', clear);
+    n.addEventListener('focus', function(){ show(n); });
+    n.addEventListener('blur', clear);
+    n.addEventListener('click', function(){ jump(n); });
+    n.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); jump(n); }
+    });
+  });
+  // mobile: chips mirror the diagram nodes when leader labels are hidden
+  var chips = document.getElementById('chips');
+  nodes.forEach(function(n){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.innerHTML = n.dataset.k;
+    b.setAttribute('aria-pressed','false');
+    b.addEventListener('click', function(){
+      var active = b.getAttribute('aria-pressed') === 'true';
+      Array.prototype.forEach.call(chips.children, function(c){ c.setAttribute('aria-pressed','false'); });
+      if (active) {
+        nodes.forEach(function(x){ x.classList.remove('on'); });
+        capK.textContent = defK; capV.textContent = defV;
+      } else {
+        b.setAttribute('aria-pressed','true');
+        show(n);
+      }
+    });
+    chips.appendChild(b);
+  });
+
+  function jump(n){
+    var t = document.getElementById(n.dataset.go);
+    if (!t) return;
+    t.scrollIntoView({behavior:'smooth', block:'center'});
+    t.classList.remove('flash');
+    void t.offsetWidth;
+    t.classList.add('flash');
+  }
+
+  // callback form
+  var btn = document.getElementById('submit'),
+      card = document.getElementById('cardform'),
+      sent = document.getElementById('sent');
+
+  var checks = [
+    {id:'f-name',  test:function(v){ return v.trim().length > 1; }},
+    {id:'f-phone', test:function(v){ return (v.replace(/\D/g,'').length >= 10); }},
+    {id:'f-town',  test:function(v){ return v.trim().length > 1; }},
+    {id:'f-issue', test:function(v){ return v !== ''; }}
+  ];
+
+  checks.forEach(function(c){
+    var el = document.getElementById(c.id);
+    var clean = function(){
+      if (c.test(el.value)) { el.closest('.fld').classList.remove('bad'); el.setAttribute('aria-invalid','false'); }
+    };
+    el.addEventListener('input', clean);
+    el.addEventListener('change', clean);
+  });
+
+  btn.addEventListener('click', function(){
+    var first = null, ok = true;
+    checks.forEach(function(c){
+      var el = document.getElementById(c.id), fld = el.closest('.fld');
+      if (!c.test(el.value)) { fld.classList.add('bad'); el.setAttribute('aria-invalid','true'); ok = false; if (!first) first = el; }
+      else { fld.classList.remove('bad'); el.setAttribute('aria-invalid','false'); }
+    });
+    if (!ok) { first.focus(); return; }
+    // DEMO ONLY — no backend wired up yet.
+    card.classList.add('done');
+    sent.classList.add('on');
+    sent.setAttribute('tabindex','-1');
+    sent.focus();
+  });
+})();
+</script>
+</body>
+</html>
